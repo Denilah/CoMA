@@ -57,66 +57,64 @@ It includes 8 datasets for 8 diversited code tasks covering the following scenar
 
 A brief summary of MID_dataset is given below:
 
-<div style="text-align: center;">
 <table border= "1" width= "600" align="center">
      <tr bgcolor="#D3D3D3">
-        <td colspan=3>Task</td>  
-        <td>Dataset name</td>  
-        <td>Num</td>  
-        <td>Programming Lang</td>
+        <td colspan=3 align="center">Task</td>  
+        <td align="center">Dataset name</td>  
+        <td align="center">Num</td>  
+        <td align="center">Programming Lang</td>
      </tr>
      <tr>
-        <td colspan=3>Code summarization</td>  
-        <td>CodeSearchNet</td>  
-        <td>120k</td>  
-        <td>Go,Java,JavaScript,PHP,Python,Ruby</td>
+        <td colspan=3 align="center">Code summarization</td>  
+        <td align="center">CodeSearchNet</td>  
+        <td align="center">120k</td>  
+        <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-       <td colspan=3>Code generation</td>  
-        <td>CodeSearchNet</td>  
-        <td>120k</td>  
-        <td>Go,Java,JavaScript,PHP,Python,Ruby</td>
+       <td colspan=3 align="center">Code generation</td>  
+        <td align="center">CodeSearchNet</td>  
+        <td align="center">120k</td>  
+        <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td rowspan=6>Code Search</td>  
-        <td rowspan=5>code-to-code</td>  
-        <td>Clone Detection</td>  
-        <td>BigCloneBench</td>
-        <td>20K</td>
-        <td>Java</td>
+        <td rowspan=6 align="center">Code Search</td>  
+        <td rowspan=5 align="center">code-to-code</td>  
+        <td align="center">Clone Detection</td>  
+        <td align="center">BigCloneBench</td>
+        <td align="center">20K</td>
+        <td align="center">Java</td>
      </tr>
      <tr>
-        <td>Defect Detection</td>  
-        <td>Devign</td>  
-        <td>12460</td>  
-        <td>C</td>
+        <td align="center">Defect Detection</td>  
+        <td align="center">Devign</td>  
+        <td align="center">12460</td>  
+        <td align="center">C</td>
      </tr>
      <tr>
-        <td>Cloze Test</td>  
-        <td>CT-all</td>  
-        <td>20K</td>  
-        <td>Go,Java,JavaScript,PHP,Python,Ruby</td>
+        <td align="center">Cloze Test</td>  
+        <td align="center">CT-all</td>  
+        <td align="center">20K</td>  
+        <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td>Code Repair</td>  
-        <td>Bug2Fix</td>  
-        <td>20K</td>  
-        <td>Java</td>
+        <td align="center">Code Repair</td>  
+        <td align="center">Bug2Fix</td>  
+        <td align="center">20K</td>  
+        <td align="center">Java</td>
      </tr>
      <tr>
-        <td>Code Translation</td>  
-        <td>CodeTrans</td>  
-        <td>11749</td>  
-        <td>Java,C#</td>
+        <td align="center">Code Translation</td>  
+        <td align="center">CodeTrans</td>  
+        <td align="center">11749</td>  
+        <td align="center">Java,C#</td>
      </tr>
      <tr>
-        <td colspan=2>query-to-code</td>  
-        <td>CodePro</td>  
-        <td> 　 </td>  
-        <td>Python,SQL</td>
+        <td colspan=2 align="center">query-to-code</td>  
+        <td align="center">CodePro</td>  
+        <td align="center"> 　 </td>  
+        <td align="center">Python,SQL</td>
      </tr>
 </table>
-</div>
 
 We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet) and [CodeXGLUE](https://github.com/microsoft/CodeXGLUE), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
 
@@ -124,18 +122,4 @@ We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeS
 
 ## Inference
 
-<<<<<<< HEAD
-=======
-## Open-Sourced Datasets
-| Dataset                                                                                           | Release time | Scale        | Lang  | Programming Lang | Task |
-| :---:                                                                                             |    :----:    |        :---: |  :---:|         :---:    |:---: |
-| [Instruct-to-Code](https://huggingface.co/datasets/Graverman/Instruct-to-Code)                    | Mar 28,2023  | 451k         | Mul   |   python…et al.  |et al.| 
-| [godot_dodo_4x_60k](https://github.com/minosvasilias/godot-dodo/tree/main/data/godot_dodo_4x_60k) |  Apr 27,2023 | 62533        | EN    |    GDScript      |Code Generation|
-|[TSSB-3M-instructions ](https://huggingface.co/datasets/zirui3/TSSB-3M-instructions)               | Apr 28,2023  | 3M           | EN    |python…et al.     |Code bugfix|
-|[Codegen](https://github.com/teknium1/GPTeacher/tree/main/Codegen)                                 | May 4,2023   |4535          | EN    |C++,Node.js,Python,shell script,Java,JavaScript,et al.| Code Generation,Code Summary,QA et al.|
-|[codealpaca](https://github.com/sahil280114/codealpaca/tree/master)                                | May 13,2023  |20k           | EN    |  HTML,CSS,Java,SQL,Python,JavaScript,JSX,C++,Swift,Ruby,PHP,et al.      | Code Generation,Code Search et al.|
-|[CodeGPT](https://github.com/zxx000728/CodeGPT)                                                    | May 10,2023 |32k           | CN    |C#,C,C++,Go,Java,JavaScript,PHP,Python,Ruby,et al.|Code Generation,Code Search, QA el al.|
-
-
->>>>>>> 34c9f92bb4880cb7f3f0c05b267aedfc7ab2e052
 ## Citation
