@@ -12,7 +12,7 @@ For this end, we propose this project, with the following advantages:
 - 2. Task diversity: Expand the dataset to cover a wide range of code trasks, including code summarization, code generation, code search.. This ensures that the instructions can handle different types of code tasks. And include a variety of code tasks with varying complexities and requirements. In addition, involve tasks of different levels, such as beginner, intermediate, and advanced, to cover a broad spectrum of programming skills and knowledge.
 - 3. Multi-programming paradigms: Include code examples that cover different programming paradigms such as procedural, object-oriented, functional, or event-driven programming. This will provide a wider range of code tasks for the instruction-tuning model to learn from and generate instructions for.
 - 4. Real-world code examples:  Include code snippets or excerpts from real-world projects to provide more realistic and practical code tasks. This helps the instruction-tuning model generate instructions that are applicable to real-world scenarios.
-- 5. Quality assurance: Ensure the dataset has accurate and high-quality instructions for each code task.
+- 5. Quality assurance: Ensure the dataset has accurate and high-quality instructions for each code task. 
 
 The repository contains the following:
 - The `MID_Dataset` used for fine-tuning the model
@@ -49,11 +49,11 @@ Due to the different code tasks, we choose which filed to generate with  `gpt-3.
 | Dataset                                                                                           | Release time | Scale        | Lang  | Programming Lang | Task |
 | :---:                                                                                             |    :----:    |        :---: |  :---:|         :---:    |:---: |
 | [Instruct-to-Code](https://huggingface.co/datasets/Graverman/Instruct-to-Code)                    | Mar 28,2023  | 451k         | Mul   |   python…et al.  |et al.| 
-| [godot_dodo_4x_60k](https://github.com/minosvasilias/godot-dodo/tree/main/data/godot_dodo_4x_60k) |  Apr 27,2023 |    62533     | EN    |    GDScript      |Code Generation|
+| [godot_dodo_4x_60k](https://github.com/minosvasilias/godot-dodo/tree/main/data/godot_dodo_4x_60k) |  Apr 27,2023 | 62533        | EN    |    GDScript      |Code Generation|
 |[TSSB-3M-instructions ](https://huggingface.co/datasets/zirui3/TSSB-3M-instructions)               | Apr 28,2023  | 3M           | EN    |python…et al.     |Code bugfix|
 |[Codegen](https://github.com/teknium1/GPTeacher/tree/main/Codegen)                                 | May 4,2023   |4535          | EN    |C++,Node.js,Python,shell script,Java,JavaScript,et al.| Code Generation,Code Summary,QA et al.|
 |[codealpaca](https://github.com/sahil280114/codealpaca/tree/master)                                | May 13,2023  |20k           | EN    |  HTML,CSS,Java,SQL,Python,JavaScript,JSX,C++,Swift,Ruby,PHP,et al.      | Code Generation,Code Search et al.|
-|[CodeGPT](https://github.com/zxx000728/CodeGPT)                                                    |  May 10,2023 |32k           | CN    |C#,C,C++,Go,Java,JavaScript,PHP,Python,Ruby,et al.|Code Generation,Code Search, QA el al.|
+|[CodeGPT](https://github.com/zxx000728/CodeGPT)                                                    | May 10,2023 |32k           | CN    |C#,C,C++,Go,Java,JavaScript,PHP,Python,Ruby,et al.|Code Generation,Code Search, QA el al.|
 
 
 ## Citation
