@@ -1,18 +1,18 @@
-# CodeLLM： A Multilingual Instruction Dataset and large language model on Code.
+# CoLLaMA: A Multilingual Instruction Dataset and Large Language Model for Code
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
-This is the repository for the `CodeLLM`project, which aims to build a multilingual instruction dataset and large language model on Coding tasks. 
+This is the repository for the `CoLLaMA`project, which aims to build a multilingual instruction dataset and large language model for coding tasks. 
 
 ## Overview
-As far as we know, at present, the dataset on instruction-tuning's code tasks is relatively messy, single-language, single-programming language, and the variety of tasks covered by the dataset is not wide enough. On the other hand, there are few open sourse datasets for instruction tuning in code tasks.
+Current code instruction datasets, which are essential for instruction-tuning tasks, are often disorganized, monolingual, and single-programming language focused, while covering an insufficient variety of tasks. Open-source datasets for instruction tuning in coding tasks are also scarce.
 
 For this end, we propose this project, with the following advantages:
-- 1. Multilingual Dataset: Include code samples from multiple programming languages(Java, Python, C, C#, Go, PHP, JavaScript, Ruby) to create a multilingual dataset. At the same time, this dataset also contains code examples in Chinese and English languages. This allows the model to learn instructions in different programming language contexts, making it more versatile.
-- 2. Task diversity: Expand the dataset to cover a wide range of code trasks, including code summarization, code generation, code search.. This ensures that the instructions can handle different types of code tasks. And include a variety of code tasks with varying complexities and requirements. In addition, involve tasks of different levels, such as beginner, intermediate, and advanced, to cover a broad spectrum of programming skills and knowledge.
-- 3. Multi-programming paradigms: Include code examples that cover different programming paradigms such as procedural, object-oriented, functional, or event-driven programming. This will provide a wider range of code tasks for the instruction-tuning model to learn from and generate instructions for.
-- 4. Real-world code examples:  Include code snippets or excerpts from real-world projects to provide more realistic and practical code tasks. This helps the instruction-tuning model generate instructions that are applicable to real-world scenarios.
-- 5. Quality assurance: Ensure the dataset has accurate and high-quality instructions for each code task. For example, CodePro extracted from programming posts in Stakoverflow Q&A sites, which is rigorously filtered and cleaned to ensure high quality for use in real Q&A applications. Specifically, we first extract high-quality posts based on [CodeMF](https://github.com/hoogang/CodeMF) framework, then use then filter out  QC corpus with “How-to-do-it” type (“How-To-Do-It” type are most relevant to queries for the code search task.) using LR (Linear Regression) classifier, and finally use the SaiHNN framework o distinguish context-independent candidate code that used as  standalone code solutions for programming queries.
+- 1. Multilingual Dataset: Our dataset incorporates code samples from a multitude of programming languages including Java, Python, C, C#, Go, PHP, JavaScript, and Ruby. It also presents code instructions in both Chinese and English, enabling the model to learn in various programming language and spoken language contexts, and thereby enhancing its generalization ability.
+- 2. Task diversity: The dataset spans a broad range of coding tasks, such as code summarization, code generation, code search, and others. It incorporates tasks with varying complexities and requirements, from beginner to advanced levels. This comprehensive approach ensures our instructions can handle different types of coding tasks and covers a broad spectrum of programming skills and knowledge.
+- 3. Multi-programming paradigms: The project includes code examples from different programming paradigms, such as procedural, object-oriented, functional, and event-driven programming. This wide coverage provides the instruction-tuning model with a varied set of coding tasks to learn from and generate instructions for.
+- 4. Real-world code examples: The dataset incorporates code snippets or excerpts from actual projects or forums such as StackOverflow and Github, to present more realistic and practical coding tasks. This aids the instruction-tuning model in generating instructions applicable to real-world scenarios.
+- 5. Quality assurance: We are committed to providing an accurate and high-quality dataset for each coding task. For instance, the instruction dataset for code search, extracted from programming posts on Stackoverflow Q&A sites, is rigorously filtered and cleaned to ensure its usability in real Q&A applications.
 
 The repository contains the following:
 - The `MID_Dataset` used for fine-tuning the model
