@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
-This is the repository for the `LLM_Code`project, which aims to build a multilingual instruction dataset on Code tasks. 
+This is the repository for the `CodeLLM`project, which aims to build a multilingual instruction dataset on Code tasks. 
 
 ## Overview
 As far as we know, at present, the dataset on instruction-tuning's code tasks is relatively messy, single-language,single-programming language, and the variety of tasks covered by the dataset is not wide enough. On the other hand, there are few open sourse datasets for instruction tuning in code tasks.
