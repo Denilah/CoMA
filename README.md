@@ -55,7 +55,7 @@ It includes 8 datasets for 8 diversited code tasks covering the following scenar
     
     * **[query-to-code](data/code_search/query_to_code/)**: Given a natural language, the task is to search source code that matches the natural languag.
 
-A brief summary of MID_dataset is given below:
+A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
 
 <table border= "1" width= "600" align="center">
      <tr bgcolor="#D3D3D3">
@@ -111,12 +111,12 @@ A brief summary of MID_dataset is given below:
      <tr>
         <td colspan=2 align="center">query-to-code</td>  
         <td align="center">CodePro</td>  
-        <td align="center"> 　 </td>  
+        <td align="center">35K</td>  
         <td align="center">Python,SQL</td>
      </tr>
 </table>
 
-We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet) and [CodeXGLUE](https://github.com/microsoft/CodeXGLUE), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
+We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet),[CodeXGLUE](https://github.com/microsoft/CodeXGLUE), and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
 
 ## Finetuning
 
