@@ -1,18 +1,18 @@
-# LLM_Code： A Multilingual Instruction Dataset on Code and trained on large language models.
+# CodeLLM： A Multilingual Instruction Dataset on Code and trained on large language models.
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
-This is the repository for the`LLM_Code`project, which aims to build a multilingual instruction dataset on Code tasks. 
+This is the repository for the `CodeLLM`project, which aims to build a multilingual instruction dataset on Code tasks. 
 
 ## Overview
 As far as we know, at present, the dataset on instruction-tuning's code tasks is relatively messy, single-language,single-programming language, and the variety of tasks covered by the dataset is not wide enough. On the other hand, there are few open sourse datasets for instruction tuning in code tasks.
 
 For this end, we propose this project, with the following advantages:
-- 1. **Multilingual Dataset**: Include code samples from multiple programming languages(Java, Python, C, C#, Go, PHP, JavaScript, Ruby) to create a multilingual dataset. At the same time, this dataset also contains code examples in Chinese and English languages. This allows the model to learn instructions in different programming language contexts, making it more versatile.
-- 2. **Task diversity**: Expand the dataset to cover a wide range of code trasks, including code summarization, code generation, code search.. This ensures that the instructions can handle different types of code tasks. And include a variety of code tasks with varying complexities and requirements. In addition, involve tasks of different levels, such as beginner, intermediate, and advanced, to cover a broad spectrum of programming skills and knowledge.
-- 3. **Multi-programming paradigms**: Include code examples that cover different programming paradigms such as procedural, object-oriented, functional, or event-driven programming. This will provide a wider range of code tasks for the instruction-tuning model to learn from and generate instructions for.
-- 4. **Real-world code examples**:  Include code snippets or excerpts from real-world projects to provide more realistic and practical code tasks. This helps the instruction-tuning model generate instructions that are applicable to real-world scenarios.
-- 5. **Quality assurance**: Ensure the dataset has accurate and high-quality instructions for each code task. 
+- 1. Multilingual Dataset: Include code samples from multiple programming languages(Java, Python, C, C#, Go, PHP, JavaScript, Ruby) to create a multilingual dataset. At the same time, this dataset also contains code examples in Chinese and English languages. This allows the model to learn instructions in different programming language contexts, making it more versatile.
+- 2. Task diversity: Expand the dataset to cover a wide range of code trasks, including code summarization, code generation, code search.. This ensures that the instructions can handle different types of code tasks. And include a variety of code tasks with varying complexities and requirements. In addition, involve tasks of different levels, such as beginner, intermediate, and advanced, to cover a broad spectrum of programming skills and knowledge.
+- 3. Multi-programming paradigms: Include code examples that cover different programming paradigms such as procedural, object-oriented, functional, or event-driven programming. This will provide a wider range of code tasks for the instruction-tuning model to learn from and generate instructions for.
+- 4. Real-world code examples:  Include code snippets or excerpts from real-world projects to provide more realistic and practical code tasks. This helps the instruction-tuning model generate instructions that are applicable to real-world scenarios.
+- 5. Quality assurance: Ensure the dataset has accurate and high-quality instructions for each code task. For example, CodePro extracted from programming posts in Stakoverflow Q&A sites, which is rigorously filtered and cleaned to ensure high quality for use in real Q&A applications. Specifically, we first extract high-quality posts based on [CodeMF](https://github.com/hoogang/CodeMF) framework, then use then filter out  QC corpus with “How-to-do-it” type (“How-To-Do-It” type are most relevant to queries for the code search task.) using LR (Linear Regression) classifier, and finally use the SaiHNN framework o distinguish context-independent candidate code that used as  standalone code solutions for programming queries.
 
 The repository contains the following:
 - The `MID_Dataset` used for fine-tuning the model
@@ -21,7 +21,7 @@ The repository contains the following:
 - The code for evaluation
 
 ## Dataset release
-[`data/MID_all_data.json`]() contains xx instruction-following dataused for fine-tuning the MID Code alpace model.
+[`data/MID_all_data.json`]() contains xx instruction-following data used for fine-tuning the CodeLLM model.
 This file is a list of dictionaries, each dictionary contains the following fileds:
 - `instruction`: describes the task that the model should perform. 
 - `input`: optional code or context for the task. For example, if the instruction is 'Please summarize this PHP code.', the input is the PHP code.
@@ -53,7 +53,7 @@ It includes 8 datasets for 8 diversited code tasks covering the following scenar
         * **[code repair]()**: It aims to automatically fix bugs in the code.
         * **[code translation]()**: Code translation refers to the process of converting source code from one programming language to another. It involves transforming the syntax, structure, and semantics of the original code while preserving its functionality and behavior.
     
-    * **[query-to-code](data/code_search/query_to_code/)**: Given a natural language, the task is to search source code that matches the natural languag.
+    * **[query-to-code](data/code_search/query_to_code/)**: Given a natural language query and mutiple code snippets, the task is to search source code that its function matches the natural languag query.
 
 A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
 
