@@ -53,7 +53,7 @@ It includes 8 datasets for 8 diversited code tasks covering the following scenar
         * **[code repair]()**: It aims to automatically fix bugs in the code.
         * **[code translation]()**: Code translation refers to the process of converting source code from one programming language to another. It involves transforming the syntax, structure, and semantics of the original code while preserving its functionality and behavior.
     
-    * **[query-to-code](data/code_search/query_to_code/)**: Given a natural language, the task is to search source code that matches the natural languag.
+    * **[query-to-code](data/code_search/query_to_code/)**: Given a natural language query and mutiple code snippets, the task is to search source code that its function matches the natural languag query.
 
 A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
 
