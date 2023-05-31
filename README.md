@@ -1,4 +1,4 @@
-# LLM_Code： A Multilingual Instruction Dataset on Code and trained on large language models.
+# CodeLLM： A Multilingual Instruction Dataset on Code and trained on large language models.
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
