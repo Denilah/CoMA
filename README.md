@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
-This is the repository for the `CoLLaMA`project, which aims to build a multilingual instruction dataset and large language model for coding tasks. 
+This is the repository for the `CoLLaMA` project, which aims to build a multilingual instruction dataset and large language model for coding tasks. 
 
 ## Overview
 Current code instruction datasets, which are essential for instruction-tuning tasks, are often disorganized, monolingual, and single-programming language focused, while covering an insufficient variety of tasks. Open-source datasets for instruction tuning in coding tasks are also scarce.
@@ -62,61 +62,118 @@ A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
         <td colspan=3 align="center">Task</td>  
         <td align="center">Dataset name</td>  
         <td align="center">Num</td>  
+        <td align="center">Lang</td>  
         <td align="center">Programming Lang</td>
      </tr>
      <tr>
-        <td colspan=3 align="center">Code summarization</td>  
+        <td colspan=3 rowspan=2 align="center">Code summarization</td>  
         <td align="center">CodeSearchNet</td>  
         <td align="center">120k</td>  
+        <td align="center">EN</td>  
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-       <td colspan=3 align="center">Code generation</td>  
+        <td align="center">##</td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+     </tr>
+     <tr>
+       <td colspan=3 rowspan=2 align="center">Code generation</td>  
         <td align="center">CodeSearchNet</td>  
         <td align="center">120k</td>  
+        <td align="center">EN</td>  
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td rowspan=6 align="center">Code Search</td>  
-        <td rowspan=5 align="center">code-to-code</td>  
-        <td align="center">Clone Detection</td>  
+        <td align="center">CodeGPT</td>
+        <td align="center">29331</td>
+        <td align="center">CN</td>
+        <td align="center">C#,C,C++,Go,Java,JavaScript,PHP,Python,Ruby</td>
+     </tr>
+     <tr>
+        <td rowspan=12 align="center">Code Search</td>  
+        <td rowspan=10 align="center">code-to-code</td>  
+        <td rowspan=2 align="center">Clone Detection</td>  
         <td align="center">BigCloneBench</td>
         <td align="center">20K</td>
+        <td align="center"> </td>  
         <td align="center">Java</td>
      </tr>
      <tr>
-        <td align="center">Defect Detection</td>  
+        <td align="center">##</td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+     </tr>
+     <tr>
+        <td rowspan=2 align="center">Defect Detection</td>  
         <td align="center">Devign</td>  
-        <td align="center">12460</td>  
+        <td align="center">12460</td> 
+        <td align="center"> </td>   
         <td align="center">C</td>
      </tr>
      <tr>
-        <td align="center">Cloze Test</td>  
+        <td align="center">##</td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+     </tr>
+     <tr>
+        <td rowspan=2 align="center">Cloze Test</td>  
         <td align="center">CT-all</td>  
         <td align="center">20K</td>  
+        <td align="center"> </td>  
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td align="center">Code Repair</td>  
+        <td align="center">##</td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+     </tr>
+     <tr>
+        <td rowspan=2 align="center">Code Repair</td>  
         <td align="center">Bug2Fix</td>  
         <td align="center">20K</td>  
+        <td align="center"> </td>  
         <td align="center">Java</td>
      </tr>
      <tr>
-        <td align="center">Code Translation</td>  
+        <td align="center">##</td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+     </tr>
+     <tr>
+        <td rowspan=2 align="center">Code Translation</td>  
         <td align="center">CodeTrans</td>  
         <td align="center">11749</td>  
+        <td align="center"> </td>  
         <td align="center">Java,C#</td>
      </tr>
      <tr>
-        <td colspan=2 align="center">query-to-code</td>  
+        <td align="center">##</td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+     </tr>
+     <tr>
+        <td colspan=2 rowspan=2 align="center">query-to-code</td>  
         <td align="center">CodePro</td>  
         <td align="center">35K</td>  
+        <td align="center"> </td>  
         <td align="center">Python,SQL</td>
+     </tr>
+     <tr>
+        <td align="center">##</td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
      </tr>
 </table>
 
-We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet),[CodeXGLUE](https://github.com/microsoft/CodeXGLUE), and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
+We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet),[CodeXGLUE](https://github.com/microsoft/CodeXGLUE), [codeGPT](https://github.com/zxx000728/CodeGPT) and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
 
 ## Finetuning
 
