@@ -8,7 +8,7 @@ This is the repository for the `CoLLaMA` project, which aims to build a multilin
 Current code instruction datasets, which are essential for instruction-tuning tasks, are often disorganized, monolingual, and single-programming language focused, while covering an insufficient variety of tasks. Open-source datasets for instruction tuning in coding tasks are also scarce.
 
 For this end, we propose this project, with the following advantages:
-- Multilingual Dataset: Our dataset incorporates code samples from a multitude of programming languages including Java, Python, C, C#, Go, PHP, JavaScript, and Ruby. It also presents code instructions in both Chinese and English, enabling the model to learn in various programming language and spoken language contexts, and thereby enhancing its generalization ability.
+- Multilingual Dataset: Our dataset incorporates code samples from a multitude of programming languages including Java, Python, C, C#, Go, PHP, JavaScript, and Ruby et.al. It also presents code instructions in both Chinese and English, enabling the model to learn in various programming language and spoken language contexts, and thereby enhancing its generalization ability.
 - Task diversity: The dataset spans a broad range of coding tasks, such as code summarization, code generation, code search, and others. It incorporates tasks with varying complexities and requirements, from beginner to advanced levels. This comprehensive approach ensures our instructions can handle different types of coding tasks and covers a broad spectrum of programming skills and knowledge.
 - Multi-programming paradigms: The project includes code examples from different programming paradigms, such as procedural, object-oriented, functional, and event-driven programming. This wide coverage provides the instruction-tuning model with a varied set of coding tasks to learn from and generate instructions for.
 - Real-world code examples: The dataset incorporates code snippets or excerpts from actual projects or forums such as StackOverflow and Github, to present more realistic and practical coding tasks. This aids the instruction-tuning model in generating instructions applicable to real-world scenarios.
@@ -73,10 +73,10 @@ A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td align="center">##</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
+        <td align="center">CodeSearchNet</td>
+        <td align="center">120K</td>
+        <td align="center">CN</td>
+        <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
        <td colspan=3 rowspan=2 align="center">Code generation</td>  
@@ -92,83 +92,53 @@ A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
         <td align="center">C#,C,C++,Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td rowspan=12 align="center">Code Search</td>  
-        <td rowspan=10 align="center">code-to-code</td>  
-        <td rowspan=2 align="center">Clone Detection</td>  
+        <td rowspan=7 align="center">Code Search</td>  
+        <td rowspan=5 align="center">code-to-code</td>  
+        <td align="center">Clone Detection</td>  
         <td align="center">BigCloneBench</td>
         <td align="center">20K</td>
-        <td align="center"> </td>  
+        <td align="center">EN</td>  
         <td align="center">Java</td>
      </tr>
      <tr>
-        <td align="center">##</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-     </tr>
-     <tr>
-        <td rowspan=2 align="center">Defect Detection</td>  
+        <td align="center">Defect Detection</td>  
         <td align="center">Devign</td>  
         <td align="center">12460</td> 
-        <td align="center"> </td>   
+        <td align="center">EN</td>   
         <td align="center">C</td>
      </tr>
      <tr>
-        <td align="center">##</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-     </tr>
-     <tr>
-        <td rowspan=2 align="center">Cloze Test</td>  
+        <td align="center">Cloze Test</td>  
         <td align="center">CT-all</td>  
         <td align="center">20K</td>  
-        <td align="center"> </td>  
+        <td align="center">EN</td>  
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td align="center">##</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-     </tr>
-     <tr>
-        <td rowspan=2 align="center">Code Repair</td>  
+        <td align="center">Code Repair</td>  
         <td align="center">Bug2Fix</td>  
         <td align="center">20K</td>  
-        <td align="center"> </td>  
+        <td align="center">EN</td>  
         <td align="center">Java</td>
      </tr>
      <tr>
-        <td align="center">##</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
-     </tr>
-     <tr>
-        <td rowspan=2 align="center">Code Translation</td>  
+        <td align="center">Code Translation</td>  
         <td align="center">CodeTrans</td>  
         <td align="center">11749</td>  
-        <td align="center"> </td>  
+        <td align="center">EN</td>  
         <td align="center">Java,C#</td>
-     </tr>
-     <tr>
-        <td align="center">##</td>
-        <td align="center"></td>
-        <td align="center"></td>
-        <td align="center"></td>
      </tr>
      <tr>
         <td colspan=2 rowspan=2 align="center">query-to-code</td>  
         <td align="center">CodePro</td>  
         <td align="center">35K</td>  
-        <td align="center"> </td>  
+        <td align="center">EN</td>  
         <td align="center">Python,SQL</td>
      </tr>
      <tr>
         <td align="center">##</td>
         <td align="center"></td>
-        <td align="center"></td>
+        <td align="center">CN</td>
         <td align="center"></td>
      </tr>
 </table>
