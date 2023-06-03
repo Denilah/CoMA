@@ -67,7 +67,7 @@ A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
      </tr>
      <tr>
         <td colspan=3 rowspan=2 align="center">Code summarization</td>  
-        <td align="center">CodeSearchNet</td>  
+        <td align="center">CodeSum</td>  
         <td align="center">120k</td>  
         <td align="center">EN</td>  
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
