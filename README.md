@@ -73,14 +73,14 @@ A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td align="center">CodeSearchNet</td>
+        <td align="center">CodeSum</td>
         <td align="center">120K</td>
         <td align="center">CN</td>
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
        <td colspan=3 rowspan=2 align="center">Code generation</td>  
-        <td align="center">CodeSearchNet</td>  
+        <td align="center">CodeGen</td>  
         <td align="center">120k</td>  
         <td align="center">EN</td>  
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
