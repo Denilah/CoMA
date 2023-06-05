@@ -60,20 +60,20 @@ A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
 <table border= "1" width= "600" align="center">
      <tr bgcolor="#D3D3D3">
         <td colspan=3 align="center">Task</td>  
-        <td align="center">Dataset name</td>  
+        <td align="center">Source Dataset name</td>  
         <td align="center">Num</td>  
         <td align="center">Lang</td>  
         <td align="center">Programming Lang</td>
      </tr>
      <tr>
         <td colspan=3 rowspan=2 align="center">Code summarization</td>  
-        <td align="center">CodeSum</td>  
+        <td align="center">CodeCodeSearchNet</td>  
         <td align="center">120k</td>  
         <td align="center">EN</td>  
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td align="center">CodeSum</td>
+        <td align="center">CodeSearchNet</td>
         <td align="center">120K</td>
         <td align="center">CN</td>
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
