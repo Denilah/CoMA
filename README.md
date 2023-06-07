@@ -108,7 +108,7 @@ A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
      <tr>
         <td align="center">Defect Detection</td>  
         <td align="center">Devign</td>  
-        <td align="center">12460</td> 
+        <td align="center">10101</td> 
         <td align="center">EN</td>   
         <td align="center">C</td>
      </tr>
@@ -136,15 +136,15 @@ A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
      <tr>
         <td colspan=2 rowspan=2 align="center">query-to-code</td>  
         <td align="center">CodePro</td>  
-        <td align="center">35K</td>  
+        <td align="center">20222</td>  
         <td align="center">EN</td>  
         <td align="center">Python,SQL</td>
      </tr>
      <tr>
-        <td align="center">##</td>
-        <td align="center"></td>
+        <td align="center">CodePro</td>
+        <td align="center">15234</td>
         <td align="center">CN</td>
-        <td align="center"></td>
+        <td align="center">Python,SQL</td>
      </tr>
 </table>
 
