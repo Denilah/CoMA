@@ -59,7 +59,7 @@ It includes 8 datasets for 8 diversited code tasks covering the following scenar
     
     * **[query-to-code](data/code_search/query_to_code/)**: Given a natural language query and mutiple code snippets, the task is to search source code that its function matches the natural languag query.
 
-A brief summary of [`MulCo dataset`](data/) is given below:
+A brief summary of MulCo is given below:
 
 <table border= "1" width= "600" align="center">
      <tr bgcolor="#D3D3D3">
