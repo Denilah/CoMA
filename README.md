@@ -2,7 +2,11 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
-This is the repository for the `CoLLaMA` project, which aims to build a multilingual instruction dataset and large language model for coding tasks. 
+This is the repository for the `CoLLaMA` project, which aims to build a multilingual (Chinese and English) instruction tuning dataset and large language model for coding tasks. 
+
+<p align="center" width="100%">
+<img src="https://i.postimg.cc/J7Ds1tw6/CoLLaMA.jpg"  width="100%" height="100%">
+</p>
 
 ## Overview
 Current code instruction datasets, which are essential for instruction-tuning tasks, are often disorganized, monolingual, and single-programming language focused, while covering an insufficient variety of tasks. Open-source datasets for instruction tuning in coding tasks are also scarce.
@@ -15,13 +19,13 @@ For this end, we propose this project, with the following advantages:
 - Quality assurance: We are committed to providing an accurate and high-quality dataset for each coding task. For instance, the instruction dataset for code search, extracted from programming posts on Stackoverflow Q&A sites, is rigorously filtered and cleaned to ensure its usability in real Q&A applications.
 
 The repository contains the following:
-- The `MID_Dataset` used for fine-tuning the model
+- The `MulCo` used for fine-tuning the model
 - The code for fine-tuning the model
 - Model weight
 - The code for evaluation
 
 ## Dataset release
-[`data/MID_all_data.json`]() contains xx instruction-following data used for fine-tuning the CodeLLM model.
+[`data/`] contains around 80k instruction-following data used for fine-tuning the CoLLaMA model.
 This file is a list of dictionaries, each dictionary contains the following fileds:
 - `instruction`: describes the task that the model should perform. 
 - `input`: optional code or context for the task. For example, if the instruction is 'Please summarize this PHP code.', the input is the PHP code.
@@ -55,7 +59,7 @@ It includes 8 datasets for 8 diversited code tasks covering the following scenar
     
     * **[query-to-code](data/code_search/query_to_code/)**: Given a natural language query and mutiple code snippets, the task is to search source code that its function matches the natural languag query.
 
-A brief summary of [`MID_dataset`](data/MID_all_data.json) is given below:
+A brief summary of [`MulCo dataset`](data/) is given below:
 
 <table border= "1" width= "600" align="center">
      <tr bgcolor="#D3D3D3">
@@ -152,6 +156,11 @@ We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeS
 
 ## Finetuning
 
-## Inference
+## Evaluation (TODO)
 
 ## Citation
+@misc{xie2023pixiu,
+      title={CoLLaMA: A Multilingual Instruction Dataset and Large Language Model for Code}, 
+      author={Gang Hu and Xi Wen and Xin Liu and Jimin Huang and Qianqian Xie},
+      year={2023},
+}
