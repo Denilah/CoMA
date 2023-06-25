@@ -4,7 +4,7 @@
 
 This is the repository for the `CoLLaMA` project, which aims to build a multilingual (Chinese and English) instruction tuning dataset and large language model for coding tasks. 
 
-<p align="center" width="100%">
+<p align="center" width="50%">
 <img src="https://i.postimg.cc/J7Ds1tw6/CoLLaMA.jpg"  width="100%" height="100%">
 </p>
 
