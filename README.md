@@ -214,7 +214,7 @@ Weights are available on Huggingface:[CoLLaMA-7b](https://huggingface.co/DaliahX
 </div>
 <div>
 <div align="center">
-    <sup>1</sup>School of Computer Science, Yunnan University&emsp;
+    <sup>1</sup>School of Information Science & Engineering, Yunnan University&emsp;
   <sup>2</sup>ChanceFocus AMC&emsp;
    <sup>3</sup>School of Computer Science, Wuhan University&emsp;
 </div>
