@@ -25,7 +25,7 @@ The repository contains the following:
 - The code for evaluation
 
 ## Dataset release
-[`data/`] contains around 80k instruction-following data used for fine-tuning the CoLLaMA model.
+[`data/`] contains around 100k instruction-following data used for fine-tuning the CoLLaMA model.
 This file is a list of dictionaries, each dictionary contains the following fileds:
 - `instruction`: describes the task that the model should perform. 
 - `input`: optional code or context for the task. For example, if the instruction is 'Please summarize this PHP code.', the input is the PHP code.
@@ -155,6 +155,50 @@ A brief summary of MulCo is given below:
 We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet),[CodeXGLUE](https://github.com/microsoft/CodeXGLUE),  [codeGPT](https://github.com/zxx000728/CodeGPT) and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
 
 ## Finetuning
+The fine-tuning process is basically followed [codealpace](https://github.com/sahil280114/codealpaca/tree/master).
+
+To reproduce a fine-tuned version of LLaMA, please follow the steps below.
+
+In order to effectively finetune a `llama-7b` model, we used eight `A100 80GB` GPUs. And it is recommended to use at least two `A100 80GB` GPUS to avoid running out of memory. Meanwhile, you need to adjust the training parameters and the deepspeed config file.
+
+Before fine-tuning, first make sure to install all requirements using:
+
+```bash
+pip install -r requirements.txt
+```
+
+Below is a command that fine-tunes LLaMA-7B with our dataset on a machine with 8 `A100 80G` GPUs using deepspeed.
+
+```bash
+torchrun --nproc_per_node=8 --master_port=2000 train.py \
+    --model_name_or_path decapoda-research/llama-7b-hf \
+    --data_path MID_train_EN_data.json \
+    --fp16 True \
+    --output_dir <output_path> \
+    --num_train_epochs 3 \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 8 \
+    --gradient_accumulation_steps 4 \
+    --evaluation_strategy "no" \
+    --save_strategy "steps" \
+    --save_steps 500 \
+    --save_total_limit 1 \
+    --learning_rate 2e-5 \
+    --weight_decay 0. \
+    --warmup_ratio 0.03 \
+    --lr_scheduler_type "cosine" \
+    --logging_steps 1 \
+    --deepspeed ds_config.json
+```
+You can replace `--data_path` with your own dataset.
+
+To easily upload a finetuned model to Huggingface, you can use(This file is taken from [here](https://github.com/minosvasilias/godot-dodo/tree/main)):
+
+```bash
+python finetuning/push_to_hub.py --model_name_or_path PATH_TO_FINETUNED_MODEL/ --push_name HF_MODEL_NAME --auth_token HF_ACCESS_TOKEN
+```
+
+Weights are available on Huggingface:[CoLLaMA-7b](https://huggingface.co/DaliahX/CoLLaMA-7b/upload/main).
 
 ## Evaluation (TODO)
 
