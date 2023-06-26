@@ -25,7 +25,7 @@ The repository contains the following:
 - The code for evaluation
 
 ## Dataset release
-[`data/`] contains around 100k instruction-following data used for fine-tuning the CoLLaMA model.
+[`data/MID_all_data`] contains around 100k instruction-following data used for fine-tuning the CoLLaMA model.
 This file is a list of dictionaries, each dictionary contains the following fileds:
 - `instruction`: describes the task that the model should perform. 
 - `input`: optional code or context for the task. For example, if the instruction is 'Please summarize this PHP code.', the input is the PHP code.
