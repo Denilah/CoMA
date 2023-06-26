@@ -2,6 +2,8 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
+\[ English | [中文](README_zh.md) \]
+
 This is the repository for the `CoLLaMA` project, which aims to build a multilingual (Chinese and English) instruction tuning dataset and large language model for coding tasks. 
 
 <p align="center" width="100%">
@@ -12,11 +14,11 @@ This is the repository for the `CoLLaMA` project, which aims to build a multilin
 Current code instruction datasets, which are essential for instruction-tuning tasks, are often disorganized, monolingual, and single-programming language focused, while covering an insufficient variety of tasks. Open-source datasets for instruction tuning in coding tasks are also scarce.
 
 For this end, we propose this project, with the following advantages:
-- Multilingual Dataset: Our dataset incorporates code samples from a multitude of programming languages including Java, Python, C, C#, Go, PHP, JavaScript, and Ruby et.al. It also presents code instructions in both Chinese and English, enabling the model to learn in various programming language and spoken language contexts, and thereby enhancing its generalization ability.
-- Task diversity: The dataset spans a broad range of coding tasks, such as code summarization, code generation, code search, and others. It incorporates tasks with varying complexities and requirements, from beginner to advanced levels. This comprehensive approach ensures our instructions can handle different types of coding tasks and covers a broad spectrum of programming skills and knowledge.
-- Multi-programming paradigms: The project includes code examples from different programming paradigms, such as procedural, object-oriented, functional, and event-driven programming. This wide coverage provides the instruction-tuning model with a varied set of coding tasks to learn from and generate instructions for.
-- Real-world code examples: The dataset incorporates code snippets or excerpts from actual projects or forums such as StackOverflow and Github, to present more realistic and practical coding tasks. This aids the instruction-tuning model in generating instructions applicable to real-world scenarios.
-- Quality assurance: We are committed to providing an accurate and high-quality dataset for each coding task. For instance, the instruction dataset for code search, extracted from programming posts on Stackoverflow Q&A sites, is rigorously filtered and cleaned to ensure its usability in real Q&A applications.
+- `Multilingual Dataset`: Our dataset incorporates code samples from a multitude of programming languages including Java, Python, C, C#, Go, PHP, JavaScript, and Ruby et.al. It also presents code instructions in both Chinese and English, enabling the model to learn in various programming language and spoken language contexts, and thereby enhancing its generalization ability.
+- `Task diversity`: The dataset spans a broad range of coding tasks, such as code summarization, code generation, code search, and others. It incorporates tasks with varying complexities and requirements, from beginner to advanced levels. This comprehensive approach ensures our instructions can handle different types of coding tasks and covers a broad spectrum of programming skills and knowledge.
+- `Multi-programming paradigms`: The project includes code examples from different programming paradigms, such as procedural, object-oriented, functional, and event-driven programming. This wide coverage provides the instruction-tuning model with a varied set of coding tasks to learn from and generate instructions for.
+- `Real-world code examples`: The dataset incorporates code snippets or excerpts from actual projects or forums such as StackOverflow and Github, to present more realistic and practical coding tasks. This aids the instruction-tuning model in generating instructions applicable to real-world scenarios.
+- `Quality assurance`: We are committed to providing an accurate and high-quality dataset for each coding task. For instance, the instruction dataset for code search, extracted from programming posts on Stackoverflow Q&A sites, is rigorously filtered and cleaned to ensure its usability in real Q&A applications.
 
 The repository contains the following:
 - The `MulCo` used for fine-tuning the model
@@ -208,7 +210,7 @@ Weights are available on Huggingface:[CoLLaMA-7b](https://huggingface.co/DaliahX
     <a target='_blank'>Gang Hu<sup>1</sup></span>&emsp;
     <a target='_blank'>Xi Wen<sup>1</sup></span>&emsp;
     <a target='_blank'>Xin Liu<sup>1</sup></a>&emsp;
-    <a href='https://jimin.chancefocus.com/' target='_blank'>Jimin Huang<sup>2</sup></a>
+    <a href='https://jimin.chancefocus.com/' target='_blank'>Jimin Huang<sup>2</sup></a>&emsp;  
     <a target='_blank'>Qianqian Xie*<sup>3</sup></a>&emsp;   
     
 </div>
@@ -225,4 +227,6 @@ Weights are available on Huggingface:[CoLLaMA-7b](https://huggingface.co/DaliahX
       author={Gang Hu and Xi Wen and Xin Liu and Jimin Huang and Qianqian Xie},
       year={2023},
 }
-``` 
+```
+</div>
+</div>
