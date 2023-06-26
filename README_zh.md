@@ -168,7 +168,7 @@
 和 [CodePro](https://github.com/hoogang/CodePro)中获取数据, 并对它们进行处理以获取上述数据集,
 最终合并到一个 [dataset](data/MID_all_data.json)中.
 
-## Finetuning
+## 微调
 
 微调过程基本上遵循[codealpace](https://github.com/sahil280114/codealpaca/tree/master).
 
