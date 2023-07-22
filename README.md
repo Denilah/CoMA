@@ -55,7 +55,7 @@ It includes 8 datasets for 8 diversited code tasks covering the following scenar
 
         * **[clone detection]()**: Given a piece of code, find another piece of code that is semantically related to it.
         * **[defect detection]()**: Given a source code, the task is to clarify what the specific defect of the code is. This include common errors such as null pointer, dereferences, array out of bounds, memory leaks, etc.
-        * **[cloze test]()**: That involves completing or filling in the missing parts of a code snippet.
+        * **[Code Completion(line level)]()**: Complete the unfinished line given previous context. 
         * **[code repair]()**: It aims to automatically fix bugs in the code.
         * **[code translation]()**: Code translation refers to the process of converting source code from one programming language to another. It involves transforming the syntax, structure, and semantics of the original code while preserving its functionality and behavior.
     
@@ -119,8 +119,8 @@ A brief summary of MulCo is given below:
         <td align="center">C</td>
      </tr>
      <tr>
-        <td align="center">Cloze Test</td>  
-        <td align="center">CT-all</td>  
+        <td align="center">Code Completion(line level)</td>  
+        <td align="center">CodeSearchNet</td>  
         <td align="center">5K</td>  
         <td align="center">EN</td>  
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
