@@ -157,11 +157,13 @@ A brief summary of MulCo is given below:
 We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet),[CodeXGLUE](https://github.com/microsoft/CodeXGLUE),  [codeGPT](https://github.com/zxx000728/CodeGPT) and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
 
 ## Finetuning
-The fine-tuning process is basically followed [codealpace](https://github.com/sahil280114/codealpaca/tree/master).
+So far, considering the influence between different data tasks, we currently only use the Code generation、Code summarization、code completion、code query datasets for fine-tuning. At the same time, we added the [codealpaca](https://github.com/sahil280114/codealpaca) dataset.
 
-To reproduce a fine-tuned version of LLaMA, please follow the steps below.
+The fine-tuning process is basically followed [Firefly](https://github.com/yangjianxin1/Firefly).
 
-In order to effectively finetune a `llama-7b` model, we used eight `A100 80GB` GPUs. And it is recommended to use at least two `A100 80GB` GPUS to avoid running out of memory. Meanwhile, you need to adjust the training parameters and the deepspeed config file.
+To reproduce a fine-tuned version of QWen, please follow the steps below.
+
+In order to effectively finetune a `QWen-7b` model, we used QLora technology to train on an `A100 80GB` GPUs. Meanwhile, you need to adjust the training parameters according to your GPUs and dataset.
 
 Before fine-tuning, first make sure to install all requirements using:
 
@@ -169,38 +171,41 @@ Before fine-tuning, first make sure to install all requirements using:
 pip install -r requirements.txt
 ```
 
-Below is a command that fine-tunes LLaMA-7B with our dataset on a machine with 8 `A100 80G` GPUs using deepspeed.
+Below is the command to fine-tune QWen-7B using our dataset combined with QLoRA technology on an "A100 80G" GPU machine.
 
 ```bash
-torchrun --nproc_per_node=8 --master_port=2000 train.py \
-    --model_name_or_path decapoda-research/llama-7b-hf \
-    --data_path MID_train_EN_data.json \
-    --fp16 True \
-    --output_dir <output_path> \
-    --num_train_epochs 3 \
-    --per_device_train_batch_size 8 \
-    --per_device_eval_batch_size 8 \
-    --gradient_accumulation_steps 4 \
-    --evaluation_strategy "no" \
-    --save_strategy "steps" \
-    --save_steps 500 \
-    --save_total_limit 1 \
-    --learning_rate 2e-5 \
-    --weight_decay 0. \
-    --warmup_ratio 0.03 \
-    --lr_scheduler_type "cosine" \
-    --logging_steps 1 \
-    --deepspeed ds_config.json
+torchrun --nproc_per_node=1 --master_port='29502' train_qlora.py --train_args_file QWen-7b-sft-lora.json
 ```
-You can replace `--data_path` with your own dataset.
-
-To easily upload a finetuned model to Huggingface, you can use(This file is taken from [here](https://github.com/minosvasilias/godot-dodo/tree/main)):
+The main fine-tuning parameters are as follows:
 
 ```bash
-python finetuning/push_to_hub.py --model_name_or_path PATH_TO_FINETUNED_MODEL/ --push_name HF_MODEL_NAME --auth_token HF_ACCESS_TOKEN
+"train_file": "/data/MID_train_512_EN_52K.jsonl",
+"num_train_epochs": 1,
+"per_device_train_batch_size": 6,
+"gradient_accumulation_steps": 2,
+"learning_rate": 1e-5,
+"max_seq_length": 512,
+"logging_steps": 50,
+"save_steps": 500,
+"save_total_limit": 1,
+"lr_scheduler_type": "constant_with_warmup",
+"warmup_steps": 500,
+"lora_rank": 64,
+"lora_alpha": 16,
+"lora_dropout": 0.05,
+"gradient_checkpointing": true,
+"optim": "paged_adamw_32bit",
+"fp16": true,
+"dataloader_num_workers": 0,
+"save_strategy": "steps",
+"weight_decay": 0,
+"max_grad_norm": 0.3
 ```
 
-Weights are available on Huggingface:[CoLLaMA-7b](https://huggingface.co/DaliahX/CoLLaMA-7b/upload/main).
+You can replace `train_file` with your own dataset.
+
+The above fine-tuning command only saves the weight and configuration file of the adapter, and needs to merge the weight of the adapter with the base model. Merge script see `merge_lora.py`
+
 
 ## Evaluation (TODO)
 
