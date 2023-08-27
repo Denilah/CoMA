@@ -157,7 +157,7 @@ A brief summary of MulCo is given below:
 We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet),[CodeXGLUE](https://github.com/microsoft/CodeXGLUE),  [codeGPT](https://github.com/zxx000728/CodeGPT) and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
 
 ## Finetuning
-So far, considering the influence between different data tasks, we currently only use the Code generation、Code summarization、code completion、code query datasets for fine-tuning. At the same time, we added the [codealpaca](https://github.com/sahil280114/codealpaca) dataset.
+So far, considering the influence between different data tasks, we currently only use the Code generation、Code summarization、code completion、code query datasets for fine-tuning. At the same time, we added the [codealpaca](https://github.com/sahil280114/codealpaca) dataset. A total of 52K data after filtering.
 
 The fine-tuning process is basically followed [Firefly](https://github.com/yangjianxin1/Firefly).
 
@@ -206,8 +206,53 @@ You can replace `train_file` with your own dataset.
 
 The above fine-tuning command only saves the weight and configuration file of the adapter, and needs to merge the weight of the adapter with the base model. Merge script see `merge_lora.py`
 
-
 ## Evaluation (TODO)
+After fine-tuning on 52K data using QLoRA technique, we evaluated this model on [humaneval](https://github.com/openai/human-eval). The result is as follows：
+
+<table border= "1" width= "600" align="center">
+   <tr bgcolor="#D3D3D3">
+     <td align="center">Model</td>  
+     <td align="center">Dataset</td>  
+     <td align="center">Epoch</td> 
+     <td align="center">Max length</td>  
+     <td align="center">pass@1</td>  
+     <td align="center">pass@10</td>
+   </tr>
+   <tr>
+     <td align="center">QWen-7b</td>  
+     <td align="center"></td>  
+     <td align="center"></td>
+     <td align="center"></td>
+     <td align="center">0.2478</td>  
+     <td align="center">0.3836</td>
+   </tr>
+   <tr>
+     <td align="center"></td>  
+     <td align="center">Summary+generation+completion+codealpaca(45k)</td>  
+     <td align="center">1</td>
+     <td align="center">1024</td>
+     <td align="center">0.2567</td>  
+     <td align="center">0.3414</td>
+   </tr>
+   <tr>
+     <td align="center"></td>  
+     <td align="center">Summary+generation+completion+codealpaca (43k)</td>  
+     <td align="center">1</td>
+     <td align="center">512</td>
+     <td align="center">0.2658</td>  
+     <td align="center">0.3902</td>
+   </tr>
+   <tr>
+     <td align="center"></td>  
+     <td align="center">Summary+generation+completion+codealpaca+query(52k)</td>  
+     <td align="center">1</td>
+     <td align="center">512</td>
+     <td align="center">0.2744</td>  
+     <td align="center">0.3902</td>
+   </tr>
+</table>
+
+We used about 26.6M tokens for instruction fine-tuning. Recently released the Code Llama models family, where all models are intialized with LLama 2 model weights and trained on 500B tokens from a code-heavy dataset. Among them, the evaluation result of Codellama-7b on human-eval is 29.98. In contrast, we only used 26.6M tokens for training, but the evaluation result reached 27.44. This is a amazing result. Since we only use part of the data at present, we will release the evaluation results of fine-tuning on all the data in the future.
 
 ## Citation
 <div>
