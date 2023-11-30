@@ -27,7 +27,7 @@ The repository contains the following:
 - The code for evaluation
 
 ## Dataset release
-`data/MID_train_EN_data` and `data/MID_train_CN_data` contains around 88k instruction-following data used for fine-tuning the CoLLaMA model.
+`data/MID_train_EN_data` and `data/MID_train_CN_data` contains around 120k instruction-following data used for fine-tuning the CoLLaMA model.
 This file is a list of dictionaries, each dictionary contains the following fileds:
 - `instruction`: describes the task that the model should perform. 
 - `input`: optional code or context for the task. For example, if the instruction is 'Please summarize this PHP code.', the input is the PHP code.
@@ -85,11 +85,17 @@ A brief summary of MulCo is given below:
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-       <td colspan=3 rowspan=3 align="center">Code generation</td>  
+       <td colspan=3 rowspan=4 align="center">Code generation</td>  
         <td align="center">CodeSearchNet</td>  
         <td align="center">10k</td>  
         <td align="center">EN</td>  
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
+     </tr>
+     <tr>  
+        <td align="center">codealpaca</td>  
+        <td align="center">20k</td>  
+        <td align="center">EN</td>  
+        <td align="center">C++,C,Java,JavaScript,PHP,Python,SQL etc.</td>
      </tr>
      <tr>
         <td align="center">CodeGPT</td>
@@ -154,7 +160,7 @@ A brief summary of MulCo is given below:
      </tr>
 </table>
 
-We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet),[CodeXGLUE](https://github.com/microsoft/CodeXGLUE),  [codeGPT](https://github.com/zxx000728/CodeGPT) and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
+We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet), [CodeXGLUE](https://github.com/microsoft/CodeXGLUE), [codeGPT](https://github.com/zxx000728/CodeGPT), [codealpaca](https://github.com/sahil280114/codealpaca) and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
 
 ## Finetuning
 So far, considering the influence between different data tasks, we currently only use the Code generation、Code summarization、code completion、code query datasets for fine-tuning. At the same time, we added the [codealpaca](https://github.com/sahil280114/codealpaca) dataset. A total of 52K data after filtering.
