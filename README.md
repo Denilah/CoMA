@@ -1,10 +1,8 @@
-# CoLLaMA: A Multilingual Instruction Dataset and Large Language Model for Code
+# CoMA: A Multi-task Instruction Tuning Dataset and Large Language Model for Code
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
-\[ English | [中文](README_zh.md) \]
-
-This is the repository for the `CoLLaMA` project, which aims to build a multilingual (Chinese and English) instruction tuning dataset and large language model for coding tasks. 
+This is the repository for the `CoMA` project, which aims to build a multilingual (Chinese and English) instruction tuning dataset and large language model for coding tasks. 
 
 <p align="center" width="100%">
 <img src="https://i.postimg.cc/J7Ds1tw6/CoLLaMA.jpg"  width="40%" height="20%">
@@ -21,7 +19,7 @@ For this end, we propose this project, with the following advantages:
 - `Quality assurance`: We are committed to providing an accurate and high-quality dataset for each coding task. For instance, the instruction dataset for code search, extracted from programming posts on Stackoverflow Q&A sites, is rigorously filtered and cleaned to ensure its usability in real Q&A applications.
 
 The repository contains the following:
-- The `MulCo` used for fine-tuning the model
+- The `CoMIT` used for fine-tuning the model
 - The code for fine-tuning the model
 - Model weight
 - The code for evaluation
@@ -61,7 +59,7 @@ It includes 8 datasets for 8 diversited code tasks covering the following scenar
     
     * **[query-to-code](data/code_search/query_to_code/)**: Given a natural language query and mutiple code snippets, the task is to search source code that its function matches the natural languag query.
 
-A brief summary of MulCo is given below:
+A brief summary of CoMIT is given below:
 
 <table border= "1" width= "600" align="center">
      <tr bgcolor="#D3D3D3">
@@ -163,13 +161,13 @@ A brief summary of MulCo is given below:
 We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet), [CodeXGLUE](https://github.com/microsoft/CodeXGLUE), [codeGPT](https://github.com/zxx000728/CodeGPT), [codealpaca](https://github.com/sahil280114/codealpaca) and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
 
 ## Finetuning
-So far, considering the influence between different data tasks, we currently only use the Code generation、Code summarization、code completion、code query datasets for fine-tuning. At the same time, we added the [codealpaca](https://github.com/sahil280114/codealpaca) dataset. A total of 52K data after filtering.
+We take the process a step further by utilizing the CoMA dataset to train CoLLaMA. Initially, we employ Qwen-7B(Original), CodeLlama-7B-Python and WizardCoder-Python-7B-V1.0 as the backbone models and fine-tune them using our proposed CoMIT multi-task code instruction following dataset. 
 
-The fine-tuning process is basically followed [Firefly](https://github.com/yangjianxin1/Firefly).
+The fine-tuning process is basically followed [PIXIU](https://github.com/The-FinAI/PIXIU).
 
 To reproduce a fine-tuned version of QWen, please follow the steps below.
 
-In order to effectively finetune a `QWen-7b` model, we used QLora technology to train on an `A100 80GB` GPUs. Meanwhile, you need to adjust the training parameters according to your GPUs and dataset.
+In order to effectively finetune a `QWen-7b` model, we used Lora technology to train on an `A100 80GB` GPUs. Meanwhile, you need to adjust the training parameters according to your GPUs and dataset.
 
 Before fine-tuning, first make sure to install all requirements using:
 
@@ -177,7 +175,7 @@ Before fine-tuning, first make sure to install all requirements using:
 pip install -r requirements.txt
 ```
 
-Below is the command to fine-tune QWen-7B using our dataset combined with QLoRA technology on an "A100 80G" GPU machine.
+Below is the command to fine-tune QWen-7B using our dataset combined with LoRA technology on an "A100 80G" GPU machine.
 
 ```bash
 torchrun --nproc_per_node=1 --master_port='29502' train_qlora.py --train_args_file QWen-7b-sft-lora.json
@@ -185,7 +183,7 @@ torchrun --nproc_per_node=1 --master_port='29502' train_qlora.py --train_args_fi
 The main fine-tuning parameters are as follows:
 
 ```bash
-"train_file": "/data/MID_train_512_EN_52K.jsonl",
+"train_file": "/data/data.jsonl",
 "num_train_epochs": 1,
 "per_device_train_batch_size": 6,
 "gradient_accumulation_steps": 2,
@@ -212,53 +210,14 @@ You can replace `train_file` with your own dataset.
 
 The above fine-tuning command only saves the weight and configuration file of the adapter, and needs to merge the weight of the adapter with the base model. Merge script see `merge_lora.py`
 
-## Evaluation (TODO)
-After fine-tuning on 52K data using QLoRA technique, we evaluated this model on [humaneval](https://github.com/openai/human-eval). The result is as follows：
+## Evaluation
+After fine-tuning on 80K data using LoRA technique, we evaluated this model on [humaneval](https://github.com/openai/human-eval). The result is as follows：
 
-<table border= "1" width= "600" align="center">
-   <tr bgcolor="#D3D3D3">
-     <td align="center">Model</td>  
-     <td align="center">Dataset</td>  
-     <td align="center">Epoch</td> 
-     <td align="center">Max length</td>  
-     <td align="center">pass@1</td>  
-     <td align="center">pass@10</td>
-   </tr>
-   <tr>
-     <td align="center">QWen-7b</td>  
-     <td align="center"></td>  
-     <td align="center"></td>
-     <td align="center"></td>
-     <td align="center">0.2478</td>  
-     <td align="center">0.3836</td>
-   </tr>
-   <tr>
-     <td align="center"></td>  
-     <td align="center">Summary+generation+completion+codealpaca(45k)</td>  
-     <td align="center">1</td>
-     <td align="center">1024</td>
-     <td align="center">0.2567</td>  
-     <td align="center">0.3414</td>
-   </tr>
-   <tr>
-     <td align="center"></td>  
-     <td align="center">Summary+generation+completion+codealpaca (43k)</td>  
-     <td align="center">1</td>
-     <td align="center">512</td>
-     <td align="center">0.2658</td>  
-     <td align="center">0.3902</td>
-   </tr>
-   <tr>
-     <td align="center"></td>  
-     <td align="center">Summary+generation+completion+codealpaca+query(52k)</td>  
-     <td align="center">1</td>
-     <td align="center">512</td>
-     <td align="center">0.2744</td>  
-     <td align="center">0.3902</td>
-   </tr>
-</table>
+<p align="center" width="100%">
+<img src="result.png"  width="80%" height="80%">
+</p>
 
-We used about 26.6M tokens for instruction fine-tuning. Recently released the Code Llama models family, where all models are intialized with LLama 2 model weights and trained on 500B tokens from a code-heavy dataset. Among them, the evaluation result of Codellama-7b on human-eval is 29.98. In contrast, we only used 26.6M tokens for training, but the evaluation result reached 27.44. This is a amazing result. Since we only use part of the data at present, we will release the evaluation results of fine-tuning on all the data in the future.
+We present self-reported evaluation results of various open and closed source models on HumanEval. The above figure illustrates the comparison between our fine-tuned model and the baseline model. Our fine-tuned CoLLaMA-WD model outperformed most open-source and closed-source models in the HumanEval evaluation, even surpassing the performance of the current SOTA model GPT-4 by reaching 83.7%. 
 
 ## Citation
 <div>
@@ -278,8 +237,8 @@ We used about 26.6M tokens for instruction fine-tuning. Recently released the Co
 </div>
    
 ```
-@misc{Hu2023CoLLaMA,
-      title={CoLLaMA: A Multilingual Instruction Dataset and Large Language Model for Code}, 
+@misc{Hu2023CoMA,
+      title={CoMA: A Multi-task Instruction Tuning Dataset and Large Language Model for Code}, 
       author={Gang Hu and Xi Wen and Xin Liu and Jimin Huang and Qianqian Xie},
       year={2023},
 }
