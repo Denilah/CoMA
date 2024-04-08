@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/)
 
-This is the repository for the `CoMA` project, which aims to build a multilingual (Chinese and English) instruction tuning dataset and large language model for coding tasks. 
+This is the repository for the `CoMA` project, including the diverse, highquality instruction dataset CoMIT and the finely-tuned large model CoLLaMA. 
 
 <p align="center" width="100%">
 <img src="https://i.postimg.cc/J7Ds1tw6/CoLLaMA.jpg"  width="40%" height="20%">
@@ -209,7 +209,7 @@ The main fine-tuning parameters are as follows:
 
 You can replace `train_file` with your own dataset.
 
-The above fine-tuning command only saves the weight and configuration file of the adapter, and needs to merge the weight of the adapter with the base model. Merge script see `merge_lora.py`
+The above fine-tuning command only saves the weight and configuration file of the adapter, and needs to merge the weight of the adapter with the base model. Merge script see `merge_lora.py`. 
 
 ## Evaluation
 After fine-tuning on 80K data using LoRA technique, we evaluated this model on [humaneval](https://github.com/openai/human-eval). The result is as follows：
@@ -218,7 +218,7 @@ After fine-tuning on 80K data using LoRA technique, we evaluated this model on [
 <img src="result.png"  width="80%" height="80%">
 </p>
 
-We present self-reported evaluation results of various open and closed source models on HumanEval. The above figure illustrates the comparison between our fine-tuned model and the baseline model. Our fine-tuned CoLLaMA-WD model outperformed most open-source and closed-source models in the HumanEval evaluation, even surpassing the performance of the current SOTA model GPT-4 by reaching 83.7%. 
+We present self-reported evaluation results of various open and closed source models on HumanEval. The above figure illustrates the comparison between our fine-tuned model and the baseline model. Our fine-tuned CoLLaMA-WD model outperformed most open-source and closed-source models in the HumanEval evaluation, even surpassing the performance of the current SOTA model GPT-4 by reaching 83.7%. We released the CoLLaMA-WP model on [huggingface](https://huggingface.co/Denilah/CoMA-7B).
 
 ## Citation
 <div>
