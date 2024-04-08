@@ -25,7 +25,7 @@ The repository contains the following:
 - The code for evaluation
 
 ## Dataset release
-`data/MID_train_EN_data` and `data/MID_train_CN_data` contains around 120k instruction-following data used for fine-tuning the CoLLaMA model.
+`data/` contains around 80k instruction-following data used for fine-tuning the CoLLaMA model.
 This file is a list of dictionaries, each dictionary contains the following fileds:
 - `instruction`: describes the task that the model should perform. 
 - `input`: optional code or context for the task. For example, if the instruction is 'Please summarize this PHP code.', the input is the PHP code.
@@ -44,33 +44,34 @@ Due to the different code tasks, we choose which filed to generate with  `gpt-3.
 
 ## Dataset Collection & Processing
 It includes 8 datasets for 8 diversited code tasks covering the following scenarios:
+* **[code-to-text](data/code-to-text/)**
+   * **code summarization**: It aims to generate concise and readable summaries or description of source code. It involves automatically generating human-readable explations or summaries of code snippets, functions, or entire programs.
+* **[code-to-code](data/code-to-code/)**
 
-* **[code generation](data/code_generation)**: According to the natural languages input by the user, the corresponding code is generated.
-* **[code summarization](data/code_summarization/)**: It aims to generate concise and readable summaries or description of source code. It involves automatically generating human-readable explations or summaries of code snippets, functions, or entire programs.
-* **[code search](data/code_search/)**
+   * **clone detection**: Given a piece of code, find another piece of code that is semantically related to it.
+   * **defect detection**: Given a source code, the task is to clarify what the specific defect of the code is. This include common errors such as null pointer, dereferences, array out of bounds, memory leaks, etc.
+   * **Code Completion(line level)**: Complete the unfinished line given previous context. 
+   * **code repair**: It aims to automatically fix bugs in the code.
+   * **code translation**: Code translation refers to the process of converting source code from one programming language to another. It involves transforming the syntax, structure, and semantics of the original code while preserving its functionality and behavior.
 
-    * **[code-to-code](data/code_search/code_to_code/)**
-
-        * **[clone detection]()**: Given a piece of code, find another piece of code that is semantically related to it.
-        * **[defect detection]()**: Given a source code, the task is to clarify what the specific defect of the code is. This include common errors such as null pointer, dereferences, array out of bounds, memory leaks, etc.
-        * **[Code Completion(line level)]()**: Complete the unfinished line given previous context. 
-        * **[code repair]()**: It aims to automatically fix bugs in the code.
-        * **[code translation]()**: Code translation refers to the process of converting source code from one programming language to another. It involves transforming the syntax, structure, and semantics of the original code while preserving its functionality and behavior.
-    
-    * **[query-to-code](data/code_search/query_to_code/)**: Given a natural language query and mutiple code snippets, the task is to search source code that its function matches the natural languag query.
+* **[text-to-code](data/text-to-code/)**
+   
+   * **code generation**: According to the natural languages input by the user, the corresponding code is generated.
+   * **code search**: Given a natural language query and mutiple code snippets, the task is to search source code that its function matches the natural languag query.
 
 A brief summary of CoMIT is given below:
 
-<table border= "1" width= "600" align="center">
+<table border= "1" width= "800" align="center">
      <tr bgcolor="#D3D3D3">
-        <td colspan=3 align="center">Task</td>  
+        <td colspan=4 align="center">Task</td>  
         <td align="center">Source Dataset name</td>  
         <td align="center">Num</td>  
         <td align="center">Lang</td>  
         <td align="center">Programming Lang</td>
      </tr>
      <tr>
-        <td colspan=3 rowspan=2 align="center">Code summarization</td>  
+        <td colspan=3 rowspan=2 align="center">Code to Text</td>  
+        <td rowspan=2 align="center">Code Summarization</td>  
         <td align="center">CodeSearchNet</td>  
         <td align="center">10k</td>  
         <td align="center">EN</td>  
@@ -83,7 +84,8 @@ A brief summary of CoMIT is given below:
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-       <td colspan=3 rowspan=4 align="center">Code generation</td>  
+        <td colspan=3 rowspan=6 align="center">Text to Code</td>
+        <td rowspan=4 align="center">Code Generation</td>  
         <td align="center">CodeSearchNet</td>  
         <td align="center">10k</td>  
         <td align="center">EN</td>  
@@ -107,8 +109,20 @@ A brief summary of CoMIT is given below:
         <td align="center">Go,Java,JavaScript,PHP,Python,Ruby</td>
      </tr>
      <tr>
-        <td rowspan=7 align="center">Code Search</td>  
-        <td rowspan=5 align="center">code-to-code</td>  
+        <td colspan=1 rowspan=2 align="center">Code Search</td>  
+        <td align="center">CodePro</td>  
+        <td align="center">10K</td>  
+        <td align="center">EN</td>  
+        <td align="center">Python,SQL</td>
+     </tr>
+     <tr>
+        <td align="center">CodePro</td>
+        <td align="center">5k</td>
+        <td align="center">CN</td>
+        <td align="center">Python,SQL</td>
+     </tr>
+     <tr>  
+        <td colspan=3 rowspan=5 align="center">Code to Code</td>  
         <td align="center">Clone Detection</td>  
         <td align="center">BigCloneBench</td>
         <td align="center">10k</td>
@@ -143,22 +157,9 @@ A brief summary of CoMIT is given below:
         <td align="center">EN</td>  
         <td align="center">Java,C#</td>
      </tr>
-     <tr>
-        <td colspan=2 rowspan=2 align="center">query-to-code</td>  
-        <td align="center">CodePro</td>  
-        <td align="center">10K</td>  
-        <td align="center">EN</td>  
-        <td align="center">Python,SQL</td>
-     </tr>
-     <tr>
-        <td align="center">CodePro</td>
-        <td align="center">5k</td>
-        <td align="center">CN</td>
-        <td align="center">Python,SQL</td>
-     </tr>
 </table>
 
-We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet), [CodeXGLUE](https://github.com/microsoft/CodeXGLUE), [codeGPT](https://github.com/zxx000728/CodeGPT), [codealpaca](https://github.com/sahil280114/codealpaca) and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/MID_all_data.json).
+We mainly obtained datasets from [CodeSearchNet](https://github.com/github/CodeSearchNet), [CodeXGLUE](https://github.com/microsoft/CodeXGLUE), [codeGPT](https://github.com/zxx000728/CodeGPT), [codealpaca](https://github.com/sahil280114/codealpaca) and [CodePro](https://github.com/hoogang/CodePro), processed them to obtain the aforementioned datasets, and concentrated them into one [dataset](data/CoMIT.json).
 
 ## Finetuning
 We take the process a step further by utilizing the CoMA dataset to train CoLLaMA. Initially, we employ Qwen-7B(Original), CodeLlama-7B-Python and WizardCoder-Python-7B-V1.0 as the backbone models and fine-tune them using our proposed CoMIT multi-task code instruction following dataset. 
