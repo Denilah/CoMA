@@ -221,28 +221,6 @@ After fine-tuning on 80K data using LoRA technique, we evaluated this model on [
 We present self-reported evaluation results of various open and closed source models on HumanEval. The above figure illustrates the comparison between our fine-tuned model and the baseline model. Our fine-tuned CoLLaMA-WD model outperformed most open-source and closed-source models in the HumanEval evaluation, even surpassing the performance of the current SOTA model GPT-4 by reaching 83.7%. We released the CoLLaMA-WP model on [huggingface](https://huggingface.co/Denilah/CoMA-7B).
 
 ## Citation
-<div>
-<div align="center">
-    <a target='_blank'>Gang Hu<sup>1</sup></span>&emsp;
-    <a target='_blank'>Xi Wen<sup>1</sup></span>&emsp;
-    <a target='_blank'>Xin Liu<sup>1</sup></a>&emsp;
-    <a href='https://jimin.chancefocus.com/' target='_blank'>Jimin Huang<sup>2</sup></a>&emsp;  
-    <a target='_blank'>Qianqian Xie*<sup>3</sup></a>&emsp;   
-    
-</div>
-<div>
-<div align="center">
-    <sup>1</sup>School of Information Science & Engineering, Yunnan University&emsp;
-  <sup>2</sup>ChanceFocus AMC&emsp;
-   <sup>3</sup>School of Computer Science, Wuhan University&emsp;
-</div>
-   
-```
-@misc{Hu2023CoMA,
-      title={CoMA: A Multi-task Instruction Tuning Dataset and Large Language Model for Code}, 
-      author={Gang Hu and Xi Wen and Xin Liu and Jimin Huang and Qianqian Xie},
-      year={2023},
-}
-```
+
 </div>
 </div>
